@@ -60,10 +60,10 @@ class RegistroSerializer(serializers.ModelSerializer):
         if password != password2:
             raise serializers.ValidationError({'password': 'As senhas não são iguais.'})
         
-        user.set_password(password) # Criptografa a senha
+        user.set_password(password) 
         user.save()
 
-        # Cria o perfil Usuario associado
+        
         Usuario.objects.create(
             nome=user.username,
             email=user.email
